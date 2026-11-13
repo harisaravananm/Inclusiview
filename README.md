@@ -1,51 +1,59 @@
-# InclusiView — AI Equity Decision Intelligence Platform
+﻿# InclusiView
 
-AI-powered platform for analyzing community accessibility, equity, and generating actionable recommendations for city stakeholders.
+[![License](https://img.shields.io/github/license/harisaravananm/Inclusiview?style=for-the-badge)](https://github.com/harisaravananm/Inclusiview/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/harisaravananm/Inclusiview?style=for-the-badge)](https://github.com/harisaravananm/Inclusiview/commits/main)
+
+An AI-powered equity decision platform for analyzing community accessibility, visualizing service gaps, and generating recommendations for city stakeholders.
+
+## Table of Contents
+
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Quick start](#quick-start)
+- [Project structure](#project-structure)
+- [License](#license)
 
 ## Features
 
-- **Dashboard** — KPI cards, equity score bar/radar charts, interactive equity heatmap
-- **Equity Map** — Multi-layer map (accessibility issues, transit stops, service centers)
-- **AI Reports** — Generate equity briefs and recommendations using LLM (OpenRouter/Gemini)
+- Clear project organization for learning, experimentation, or demonstration
+- Project-specific workflows documented below
+- Reproducible local setup instructions
 
-## Tech Stack
+## Tech stack
 
-- **Frontend:** React + Vite + TypeScript + Recharts + Tailwind CSS (zero image deps)
-- **Backend:** FastAPI + SQLAlchemy + SQLite/PostgreSQL
-- **AI:** OpenRouter API (GPT-4o-mini) or Google Gemini
-- **Deployment:** Google Cloud Run (single container)
+React, Vite, TypeScript, Recharts, Tailwind CSS, FastAPI, SQLAlchemy, SQLite/PostgreSQL, OpenRouter, and Gemini
 
-## Run Locally
+## Quick start
 
 ```bash
-# Backend
+git clone https://github.com/harisaravananm/Inclusiview.git
+cd Inclusiview
+
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --port 8000
+```
 
-# Frontend
+In another terminal:
+
+```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open http://localhost:5173
+Open `http://localhost:5173`.
 
-## Deploy to Cloud Run
+## Project structure
 
-```powershell
-# 1. Set your project ID in deploy-cloudrun.ps1
-# 2. Run:
-.\deploy-cloudrun.ps1
+```text
+.
+|-- backend/
+|-- frontend/
+|-- deploy-cloudrun.ps1
+`-- README.md
 ```
 
-## Architecture
+## License
 
-```
-Browser → Cloud Run (FastAPI + static frontend)
-                │
-                ├── /api/insights (data queries)
-                └── /api/analysis (AI briefs + recommendations)
-                              │
-                              └── OpenRouter / Gemini API
-```
+This project is distributed under the license in [LICENSE](LICENSE).
